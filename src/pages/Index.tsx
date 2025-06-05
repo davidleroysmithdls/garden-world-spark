@@ -1,17 +1,48 @@
-
 import React, { useState } from 'react';
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Star, Phone, Mail, MapPin, Users, CheckCircle, ArrowRight } from "lucide-react";
 import LeadForm from "@/components/LeadForm";
+import { useToast } from "@/hooks/use-toast";
 
 const Index = () => {
   const [isLeadFormOpen, setIsLeadFormOpen] = useState(false);
+  const [footerFormData, setFooterFormData] = useState({
+    name: '',
+    phone: '',
+    service: ''
+  });
+  const { toast } = useToast();
 
   const scrollToServices = () => {
     const servicesSection = document.getElementById('services');
     servicesSection?.scrollIntoView({ behavior: 'smooth' });
+  };
+
+  const handleFooterFormSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    
+    if (!footerFormData.name || !footerFormData.phone || !footerFormData.service) {
+      toast({
+        title: "Please fill in all fields",
+        description: "Name, phone, and service are required.",
+        variant: "destructive"
+      });
+      return;
+    }
+
+    console.log('Footer form submitted:', footerFormData);
+    
+    toast({
+      title: "Request submitted!",
+      description: "We'll call you back within 24 hours.",
+    });
+
+    setFooterFormData({ name: '', phone: '', service: '' });
   };
 
   const reviews = [
@@ -320,8 +351,76 @@ const Index = () => {
       </section>
 
       {/* Footer */}
-      <footer className="py-12 px-4 bg-gray-900 text-white">
+      <footer className="py-16 px-4 bg-gray-900 text-white">
         <div className="container mx-auto max-w-6xl">
+          {/* Footer Lead Form */}
+          <div className="mb-12 p-8 bg-gradient-to-r from-green-600 to-green-700 rounded-2xl">
+            <div className="text-center mb-8">
+              <h3 className="text-2xl font-bold text-white mb-2">
+                Quick Quote Request
+              </h3>
+              <p className="text-green-100">
+                Get a fast quote - we'll call you back within 24 hours
+              </p>
+            </div>
+            
+            <form onSubmit={handleFooterFormSubmit} className="max-w-2xl mx-auto">
+              <div className="grid md:grid-cols-3 gap-4 mb-4">
+                <div>
+                  <Label htmlFor="footer-name" className="text-white text-sm font-medium mb-2 block">
+                    Your Name *
+                  </Label>
+                  <Input
+                    id="footer-name"
+                    value={footerFormData.name}
+                    onChange={(e) => setFooterFormData(prev => ({ ...prev, name: e.target.value }))}
+                    placeholder="Enter your name"
+                    className="bg-white border-0"
+                  />
+                </div>
+                <div>
+                  <Label htmlFor="footer-phone" className="text-white text-sm font-medium mb-2 block">
+                    Phone Number *
+                  </Label>
+                  <Input
+                    id="footer-phone"
+                    type="tel"
+                    value={footerFormData.phone}
+                    onChange={(e) => setFooterFormData(prev => ({ ...prev, phone: e.target.value }))}
+                    placeholder="Enter your phone"
+                    className="bg-white border-0"
+                  />
+                </div>
+                <div>
+                  <Label htmlFor="footer-service" className="text-white text-sm font-medium mb-2 block">
+                    Service Needed *
+                  </Label>
+                  <Select value={footerFormData.service} onValueChange={(value) => setFooterFormData(prev => ({ ...prev, service: value }))}>
+                    <SelectTrigger className="bg-white border-0">
+                      <SelectValue placeholder="Select service" />
+                    </SelectTrigger>
+                    <SelectContent>
+                      <SelectItem value="driveway">Driveway</SelectItem>
+                      <SelectItem value="patio">Patio</SelectItem>
+                      <SelectItem value="fencing">Fencing</SelectItem>
+                      <SelectItem value="multiple">Multiple Services</SelectItem>
+                    </SelectContent>
+                  </Select>
+                </div>
+              </div>
+              
+              <div className="text-center">
+                <Button 
+                  type="submit"
+                  className="bg-white text-green-600 hover:bg-gray-100 px-8 py-3 text-lg font-semibold"
+                >
+                  Request Call Back
+                  <Phone className="ml-2" size={18} />
+                </Button>
+              </div>
+            </form>
+          </div>
+
           <div className="grid md:grid-cols-4 gap-8">
             <div>
               <div className="flex items-center space-x-2 mb-4">
