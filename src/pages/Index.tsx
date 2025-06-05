@@ -297,7 +297,7 @@ const Index = () => {
                   <div className="flex text-yellow-400 mb-4">
                     {[...Array(review.rating)].map((_, i) => <Star key={i} size={20} fill="currentColor" />)}
                   </div>
-                  <p className="text-gray-600 mb-6 italic">"{review.text}"</p>
+                  <p className="font-normal">"{review.text}"</p>
                   <div>
                     <p className="font-semibold text-gray-900">{review.name}</p>
                     <p className="text-sm text-gray-500">{review.location}</p>
