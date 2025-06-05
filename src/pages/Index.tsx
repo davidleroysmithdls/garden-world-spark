@@ -8,7 +8,6 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { Star, Phone, Mail, MapPin, Users, CheckCircle, ArrowRight } from "lucide-react";
 import LeadForm from "@/components/LeadForm";
 import { useToast } from "@/hooks/use-toast";
-
 const Index = () => {
   const [isLeadFormOpen, setIsLeadFormOpen] = useState(false);
   const [footerFormData, setFooterFormData] = useState({
@@ -16,16 +15,17 @@ const Index = () => {
     phone: '',
     service: ''
   });
-  const { toast } = useToast();
-
+  const {
+    toast
+  } = useToast();
   const scrollToServices = () => {
     const servicesSection = document.getElementById('services');
-    servicesSection?.scrollIntoView({ behavior: 'smooth' });
+    servicesSection?.scrollIntoView({
+      behavior: 'smooth'
+    });
   };
-
   const handleFooterFormSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    
     if (!footerFormData.name || !footerFormData.phone || !footerFormData.service) {
       toast({
         title: "Please fill in all fields",
@@ -34,47 +34,47 @@ const Index = () => {
       });
       return;
     }
-
     console.log('Footer form submitted:', footerFormData);
-    
     toast({
       title: "Request submitted!",
-      description: "We'll call you back within 24 hours.",
+      description: "We'll call you back within 24 hours."
     });
-
-    setFooterFormData({ name: '', phone: '', service: '' });
+    setFooterFormData({
+      name: '',
+      phone: '',
+      service: ''
+    });
   };
-
-  const reviews = [
-    {
-      name: "Sarah Johnson",
-      rating: 5,
-      text: "Absolutely fantastic work on our new driveway. Professional, punctual, and the quality is outstanding. Highly recommend Garden World Construction!",
-      location: "Manchester"
-    },
-    {
-      name: "Michael Thompson",
-      rating: 5,
-      text: "They transformed our back garden with a beautiful patio and fencing. The attention to detail was incredible. Will definitely use them again.",
-      location: "Leeds"
-    },
-    {
-      name: "Emma Williams",
-      rating: 5,
-      text: "From quote to completion, the service was exceptional. Our new fence looks amazing and was installed quickly with minimal disruption.",
-      location: "Birmingham"
-    }
-  ];
-
-  const stats = [
-    { number: "500+", label: "Projects Completed" },
-    { number: "15+", label: "Years Experience" },
-    { number: "5★", label: "Average Rating" },
-    { number: "100%", label: "Customer Satisfaction" }
-  ];
-
-  return (
-    <div className="min-h-screen bg-gradient-to-b from-green-50 to-white">
+  const reviews = [{
+    name: "Sarah Johnson",
+    rating: 5,
+    text: "Absolutely fantastic work on our new driveway. Professional, punctual, and the quality is outstanding. Highly recommend Garden World Construction!",
+    location: "Manchester"
+  }, {
+    name: "Michael Thompson",
+    rating: 5,
+    text: "They transformed our back garden with a beautiful patio and fencing. The attention to detail was incredible. Will definitely use them again.",
+    location: "Leeds"
+  }, {
+    name: "Emma Williams",
+    rating: 5,
+    text: "From quote to completion, the service was exceptional. Our new fence looks amazing and was installed quickly with minimal disruption.",
+    location: "Birmingham"
+  }];
+  const stats = [{
+    number: "500+",
+    label: "Projects Completed"
+  }, {
+    number: "15+",
+    label: "Years Experience"
+  }, {
+    number: "5★",
+    label: "Average Rating"
+  }, {
+    number: "100%",
+    label: "Customer Satisfaction"
+  }];
+  return <div className="min-h-screen bg-gradient-to-b from-green-50 to-white">
       {/* Header */}
       <header className="bg-white shadow-sm border-b">
         <div className="container mx-auto px-4 py-4 flex justify-between items-center">
@@ -92,10 +92,7 @@ const Index = () => {
               <Phone size={16} />
               <span className="text-sm">Call Today</span>
             </div>
-            <Button 
-              onClick={() => setIsLeadFormOpen(true)}
-              className="bg-green-600 hover:bg-green-700"
-            >
+            <Button onClick={() => setIsLeadFormOpen(true)} className="bg-green-600 hover:bg-green-700">
               Get Free Quote
             </Button>
           </div>
@@ -118,36 +115,21 @@ const Index = () => {
                 Expert driveways, patios, and fencing across the UK. Over 15 years of experience delivering exceptional quality and craftsmanship.
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
-                <Button 
-                  size="lg" 
-                  onClick={() => setIsLeadFormOpen(true)}
-                  className="bg-green-600 hover:bg-green-700 text-lg px-8 py-4 hover-scale"
-                >
+                <Button size="lg" onClick={() => setIsLeadFormOpen(true)} className="bg-green-600 hover:bg-green-700 text-lg px-8 py-4 hover-scale">
                   Get Your Free Quote
                   <ArrowRight className="ml-2" size={20} />
                 </Button>
-                <Button 
-                  size="lg" 
-                  variant="outline" 
-                  onClick={scrollToServices}
-                  className="text-lg px-8 py-4 border-green-600 text-green-600 hover:bg-green-50"
-                >
+                <Button size="lg" variant="outline" onClick={scrollToServices} className="text-lg px-8 py-4 border-green-600 text-green-600 hover:bg-green-50">
                   View Our Work
                 </Button>
               </div>
             </div>
             <div className="relative">
-              <img 
-                src="https://images.unsplash.com/photo-1433086966358-54859d0ed716?auto=format&fit=crop&w=800&q=80" 
-                alt="Beautiful garden construction work"
-                className="rounded-2xl shadow-2xl hover-scale"
-              />
+              <img src="https://images.unsplash.com/photo-1433086966358-54859d0ed716?auto=format&fit=crop&w=800&q=80" alt="Beautiful garden construction work" className="rounded-2xl shadow-2xl hover-scale" />
               <div className="absolute -bottom-6 -left-6 bg-white p-6 rounded-xl shadow-lg">
                 <div className="flex items-center space-x-2">
                   <div className="flex text-yellow-400">
-                    {[...Array(5)].map((_, i) => (
-                      <Star key={i} size={16} fill="currentColor" />
-                    ))}
+                    {[...Array(5)].map((_, i) => <Star key={i} size={16} fill="currentColor" />)}
                   </div>
                   <span className="font-semibold text-gray-900">5.0</span>
                 </div>
@@ -162,12 +144,10 @@ const Index = () => {
       <section className="py-12 bg-green-600">
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
-            {stats.map((stat, index) => (
-              <div key={index} className="text-center text-white">
+            {stats.map((stat, index) => <div key={index} className="text-center text-white">
                 <div className="text-3xl lg:text-4xl font-bold mb-2">{stat.number}</div>
                 <div className="text-green-100">{stat.label}</div>
-              </div>
-            ))}
+              </div>)}
           </div>
         </div>
       </section>
@@ -187,11 +167,7 @@ const Index = () => {
           <div className="grid md:grid-cols-3 gap-8">
             <Card className="group hover:shadow-xl transition-all duration-300 hover-scale">
               <CardContent className="p-8">
-                <img 
-                  src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=400&q=80" 
-                  alt="Professional driveway construction with block paving"
-                  className="w-full h-48 object-cover rounded-lg mb-6"
-                />
+                <img alt="Professional driveway construction with block paving" className="w-full h-48 object-cover rounded-lg mb-6" src="/lovable-uploads/8e2246c9-ec57-4ce8-ba9a-460ae3e9b0d9.jpg" />
                 <h3 className="text-2xl font-bold text-gray-900 mb-4">Driveways</h3>
                 <p className="text-gray-600 mb-6">
                   Block paving, tarmac, and resin bound driveways built to last. Professional installation with full guarantee.
@@ -215,11 +191,7 @@ const Index = () => {
 
             <Card className="group hover:shadow-xl transition-all duration-300 hover-scale">
               <CardContent className="p-8">
-                <img 
-                  src="https://images.unsplash.com/photo-1416879595882-3373a0480b5b?auto=format&fit=crop&w=400&q=80" 
-                  alt="Beautiful patio with natural stone paving"
-                  className="w-full h-48 object-cover rounded-lg mb-6"
-                />
+                <img src="https://images.unsplash.com/photo-1416879595882-3373a0480b5b?auto=format&fit=crop&w=400&q=80" alt="Beautiful patio with natural stone paving" className="w-full h-48 object-cover rounded-lg mb-6" />
                 <h3 className="text-2xl font-bold text-gray-900 mb-4">Patios</h3>
                 <p className="text-gray-600 mb-6">
                   Transform your outdoor space with stunning patios. Natural stone, porcelain, and composite materials available.
@@ -243,11 +215,7 @@ const Index = () => {
 
             <Card className="group hover:shadow-xl transition-all duration-300 hover-scale">
               <CardContent className="p-8">
-                <img 
-                  src="https://images.unsplash.com/photo-1585128733711-ce4a9cce7b75?auto=format&fit=crop&w=400&q=80" 
-                  alt="Quality wooden fencing installation"
-                  className="w-full h-48 object-cover rounded-lg mb-6"
-                />
+                <img src="https://images.unsplash.com/photo-1585128733711-ce4a9cce7b75?auto=format&fit=crop&w=400&q=80" alt="Quality wooden fencing installation" className="w-full h-48 object-cover rounded-lg mb-6" />
                 <h3 className="text-2xl font-bold text-gray-900 mb-4">Fencing</h3>
                 <p className="text-gray-600 mb-6">
                   Secure and attractive fencing solutions. Close board, panel, and decorative fencing options available.
@@ -285,13 +253,10 @@ const Index = () => {
           </div>
 
           <div className="grid md:grid-cols-3 gap-8">
-            {reviews.map((review, index) => (
-              <Card key={index} className="bg-white hover:shadow-lg transition-shadow duration-300">
+            {reviews.map((review, index) => <Card key={index} className="bg-white hover:shadow-lg transition-shadow duration-300">
                 <CardContent className="p-8">
                   <div className="flex text-yellow-400 mb-4">
-                    {[...Array(review.rating)].map((_, i) => (
-                      <Star key={i} size={20} fill="currentColor" />
-                    ))}
+                    {[...Array(review.rating)].map((_, i) => <Star key={i} size={20} fill="currentColor" />)}
                   </div>
                   <p className="text-gray-600 mb-6 italic">"{review.text}"</p>
                   <div>
@@ -299,8 +264,7 @@ const Index = () => {
                     <p className="text-sm text-gray-500">{review.location}</p>
                   </div>
                 </CardContent>
-              </Card>
-            ))}
+              </Card>)}
           </div>
         </div>
       </section>
@@ -339,11 +303,7 @@ const Index = () => {
           <p className="text-xl text-green-100 mb-8">
             Get your free, no-obligation quote today. Professional consultation and competitive pricing guaranteed.
           </p>
-          <Button 
-            size="lg" 
-            onClick={() => setIsLeadFormOpen(true)}
-            className="bg-white text-green-600 hover:bg-gray-100 text-lg px-8 py-4 hover-scale"
-          >
+          <Button size="lg" onClick={() => setIsLeadFormOpen(true)} className="bg-white text-green-600 hover:bg-gray-100 text-lg px-8 py-4 hover-scale">
             Get Your Free Quote Now
             <ArrowRight className="ml-2" size={20} />
           </Button>
@@ -370,32 +330,28 @@ const Index = () => {
                   <Label htmlFor="footer-name" className="text-white text-sm font-medium mb-2 block">
                     Your Name *
                   </Label>
-                  <Input
-                    id="footer-name"
-                    value={footerFormData.name}
-                    onChange={(e) => setFooterFormData(prev => ({ ...prev, name: e.target.value }))}
-                    placeholder="Enter your name"
-                    className="bg-white border-0"
-                  />
+                  <Input id="footer-name" value={footerFormData.name} onChange={e => setFooterFormData(prev => ({
+                  ...prev,
+                  name: e.target.value
+                }))} placeholder="Enter your name" className="bg-white border-0" />
                 </div>
                 <div>
                   <Label htmlFor="footer-phone" className="text-white text-sm font-medium mb-2 block">
                     Phone Number *
                   </Label>
-                  <Input
-                    id="footer-phone"
-                    type="tel"
-                    value={footerFormData.phone}
-                    onChange={(e) => setFooterFormData(prev => ({ ...prev, phone: e.target.value }))}
-                    placeholder="Enter your phone"
-                    className="bg-white border-0"
-                  />
+                  <Input id="footer-phone" type="tel" value={footerFormData.phone} onChange={e => setFooterFormData(prev => ({
+                  ...prev,
+                  phone: e.target.value
+                }))} placeholder="Enter your phone" className="bg-white border-0" />
                 </div>
                 <div>
                   <Label htmlFor="footer-service" className="text-white text-sm font-medium mb-2 block">
                     Service Needed *
                   </Label>
-                  <Select value={footerFormData.service} onValueChange={(value) => setFooterFormData(prev => ({ ...prev, service: value }))}>
+                  <Select value={footerFormData.service} onValueChange={value => setFooterFormData(prev => ({
+                  ...prev,
+                  service: value
+                }))}>
                     <SelectTrigger className="bg-white border-0">
                       <SelectValue placeholder="Select service" />
                     </SelectTrigger>
@@ -410,10 +366,7 @@ const Index = () => {
               </div>
               
               <div className="text-center">
-                <Button 
-                  type="submit"
-                  className="bg-white text-green-600 hover:bg-gray-100 px-8 py-3 text-lg font-semibold"
-                >
+                <Button type="submit" className="bg-white text-green-600 hover:bg-gray-100 px-8 py-3 text-lg font-semibold">
                   Request Call Back
                   <Phone className="ml-2" size={18} />
                 </Button>
@@ -477,8 +430,6 @@ const Index = () => {
 
       {/* Lead Form Modal */}
       <LeadForm isOpen={isLeadFormOpen} onClose={() => setIsLeadFormOpen(false)} />
-    </div>
-  );
+    </div>;
 };
-
 export default Index;
