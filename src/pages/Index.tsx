@@ -442,7 +442,7 @@ const Index = () => {
                 </div>
                 <div className="flex items-center space-x-2">
                   <Mail size={16} />
-                  <span>info@gardenworldconstruction.co.uk</span>
+                  <span>info@contractorpros.co.uk</span>
                 </div>
                 <div className="flex items-center space-x-2">
                   <MapPin size={16} />
