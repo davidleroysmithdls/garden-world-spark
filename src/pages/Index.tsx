@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
@@ -8,6 +7,7 @@ import { Label } from "@/components/ui/label";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Star, Phone, Mail, MapPin, Users, CheckCircle, ArrowRight } from "lucide-react";
 import LeadForm from "@/components/LeadForm";
+import Logo from "@/components/Logo";
 import { useToast } from "@/hooks/use-toast";
 
 const Index = () => {
@@ -75,15 +75,7 @@ const Index = () => {
       {/* Header */}
       <header className="bg-white shadow-sm border-b">
         <div className="container mx-auto px-4 py-4 flex justify-between items-center">
-          <div className="flex items-center space-x-2">
-            <div className="w-10 h-10 bg-orange-500 rounded-lg flex items-center justify-center">
-              <span className="text-white font-bold text-lg">GW</span>
-            </div>
-            <div>
-              <h1 className="text-xl font-bold text-gray-900">Garden World Construction</h1>
-              <p className="text-sm text-gray-600">Professional Contractors UK</p>
-            </div>
-          </div>
+          <Logo />
           <div className="hidden md:flex items-center space-x-6">
             <div className="flex items-center space-x-2 text-gray-600">
               <Phone size={16} />
@@ -464,13 +456,11 @@ const Index = () => {
           {/* Footer Content */}
           <div className="grid md:grid-cols-4 gap-8">
             <div>
-              <div className="flex items-center space-x-2 mb-4">
-                <div className="w-8 h-8 bg-orange-500 rounded-lg flex items-center justify-center">
-                  <span className="text-white font-bold">GW</span>
-                </div>
-                <span className="font-bold">Garden World Construction</span>
+              <Logo size="sm" showText={false} />
+              <div className="mt-2">
+                <span className="font-bold text-white">Garden World Construction</span>
               </div>
-              <p className="text-gray-400 text-sm">
+              <p className="text-gray-400 text-sm mt-2">
                 Professional contractors delivering exceptional outdoor construction services across the UK.
               </p>
             </div>
