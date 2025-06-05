@@ -215,7 +215,7 @@ const Index = () => {
 
             <Card className="group hover:shadow-xl transition-all duration-300 hover-scale">
               <CardContent className="p-8">
-                <img src="https://images.unsplash.com/photo-1585128733711-ce4a9cce7b75?auto=format&fit=crop&w=400&q=80" alt="Quality wooden fencing installation" className="w-full h-48 object-cover rounded-lg mb-6" />
+                <img alt="Quality wooden fencing installation" className="w-full h-48 object-cover rounded-lg mb-6" src="/lovable-uploads/b98f0900-5a4c-4662-8dad-ea213f6bfe9c.jpg" />
                 <h3 className="text-2xl font-bold text-gray-900 mb-4">Fencing</h3>
                 <p className="text-gray-600 mb-6">
                   Secure and attractive fencing solutions. Close board, panel, and decorative fencing options available.
