@@ -188,8 +188,8 @@ const Index = () => {
             <Card className="group hover:shadow-xl transition-all duration-300 hover-scale">
               <CardContent className="p-8">
                 <img 
-                  src="https://images.unsplash.com/photo-1433832597046-4f10e10ac764?auto=format&fit=crop&w=400&q=80" 
-                  alt="Professional driveway construction"
+                  src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=400&q=80" 
+                  alt="Professional driveway construction with block paving"
                   className="w-full h-48 object-cover rounded-lg mb-6"
                 />
                 <h3 className="text-2xl font-bold text-gray-900 mb-4">Driveways</h3>
@@ -216,8 +216,8 @@ const Index = () => {
             <Card className="group hover:shadow-xl transition-all duration-300 hover-scale">
               <CardContent className="p-8">
                 <img 
-                  src="https://images.unsplash.com/photo-1487958449943-2429e8be8625?auto=format&fit=crop&w=400&q=80" 
-                  alt="Beautiful patio construction"
+                  src="https://images.unsplash.com/photo-1416879595882-3373a0480b5b?auto=format&fit=crop&w=400&q=80" 
+                  alt="Beautiful patio with natural stone paving"
                   className="w-full h-48 object-cover rounded-lg mb-6"
                 />
                 <h3 className="text-2xl font-bold text-gray-900 mb-4">Patios</h3>
@@ -244,8 +244,8 @@ const Index = () => {
             <Card className="group hover:shadow-xl transition-all duration-300 hover-scale">
               <CardContent className="p-8">
                 <img 
-                  src="https://images.unsplash.com/photo-1433086966358-54859d0ed716?auto=format&fit=crop&w=400&q=80" 
-                  alt="Quality fencing installation"
+                  src="https://images.unsplash.com/photo-1585128733711-ce4a9cce7b75?auto=format&fit=crop&w=400&q=80" 
+                  alt="Quality wooden fencing installation"
                   className="w-full h-48 object-cover rounded-lg mb-6"
                 />
                 <h3 className="text-2xl font-bold text-gray-900 mb-4">Fencing</h3>
