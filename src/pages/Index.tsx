@@ -191,7 +191,7 @@ const Index = () => {
 
             <Card className="group hover:shadow-xl transition-all duration-300 hover-scale">
               <CardContent className="p-8">
-                <img src="https://images.unsplash.com/photo-1416879595882-3373a0480b5b?auto=format&fit=crop&w=400&q=80" alt="Beautiful patio with natural stone paving" className="w-full h-48 object-cover rounded-lg mb-6" />
+                <img alt="Beautiful patio with natural stone paving" className="w-full h-48 object-cover rounded-lg mb-6" src="/lovable-uploads/eae47919-0755-466f-83d4-8ebb3d5dc516.jpg" />
                 <h3 className="text-2xl font-bold text-gray-900 mb-4">Patios</h3>
                 <p className="text-gray-600 mb-6">
                   Transform your outdoor space with stunning patios. Natural stone, porcelain, and composite materials available.
