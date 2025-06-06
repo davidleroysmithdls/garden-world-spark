@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
@@ -232,7 +231,7 @@ const LeadForm: React.FC<LeadFormProps> = ({ isOpen, onClose }) => {
                 onCheckedChange={(checked) => handleInputChange('agreedToContact', checked)}
               />
               <Label htmlFor="agreedToContact" className="text-sm text-gray-600 leading-relaxed">
-                I agree to be contacted by Garden World Construction regarding my quote request. 
+                I agree to be contacted by Contractor Pros regarding my quote request. 
                 We respect your privacy and will not share your information with third parties. *
               </Label>
             </div>
