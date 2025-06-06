@@ -24,6 +24,10 @@ const Index = () => {
     servicesSection?.scrollIntoView({ behavior: 'smooth' });
   };
 
+  const handleCallClick = () => {
+    window.location.href = 'tel:+447700900123';
+  };
+
   const handleFooterFormSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (!footerFormData.name || !footerFormData.phone || !footerFormData.service) {
@@ -84,10 +88,13 @@ const Index = () => {
         <div className="container mx-auto px-4 py-4 flex justify-between items-center">
           <Logo />
           <div className="hidden md:flex items-center space-x-6">
-            <div className="flex items-center space-x-2 text-gray-600">
-              <Phone size={16} />
-              <span className="text-sm">Call Today</span>
-            </div>
+            <Button 
+              onClick={handleCallClick}
+              className="bg-blue-600 hover:bg-blue-700 text-white font-bold px-6 py-2"
+            >
+              <Phone size={16} className="mr-2" />
+              Call Today
+            </Button>
             <Button onClick={() => setIsLeadFormOpen(true)} className="bg-orange-500 hover:bg-orange-600 text-white">
               Get Free Quote
             </Button>
@@ -329,18 +336,34 @@ const Index = () => {
           <h3 className="text-2xl font-bold text-gray-900 mb-8">Accredited & Certified</h3>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 items-center">
             <div className="bg-white p-6 rounded-lg shadow-sm">
+              <img 
+                src="https://images.unsplash.com/photo-1487958449943-2429e8be8625?w=100&h=100&fit=crop&crop=center" 
+                alt="Checkatrade Logo" 
+                className="w-16 h-16 mx-auto mb-3 object-contain"
+              />
               <p className="font-semibold text-gray-700">Checkatrade</p>
               <p className="text-sm text-gray-500">Approved</p>
             </div>
             <div className="bg-white p-6 rounded-lg shadow-sm">
+              <img 
+                src="https://images.unsplash.com/photo-1524230572899-a752b3835840?w=100&h=100&fit=crop&crop=center" 
+                alt="Trading Standards Logo" 
+                className="w-16 h-16 mx-auto mb-3 object-contain"
+              />
               <p className="font-semibold text-gray-700">Trading Standards</p>
               <p className="text-sm text-gray-500">Approved</p>
             </div>
             <div className="bg-white p-6 rounded-lg shadow-sm">
+              <img 
+                src="https://images.unsplash.com/photo-1459767129954-1b1c1f9b9ace?w=100&h=100&fit=crop&crop=center" 
+                alt="Insurance Logo" 
+                className="w-16 h-16 mx-auto mb-3 object-contain"
+              />
               <p className="font-semibold text-gray-700">Fully Insured</p>
               <p className="text-sm text-gray-500">£2M Coverage</p>
             </div>
             <div className="bg-white p-6 rounded-lg shadow-sm">
+              <CheckCircle className="w-16 h-16 mx-auto mb-3 text-green-600" />
               <p className="font-semibold text-gray-700">Guarantee</p>
               <p className="text-sm text-gray-500">10 Year</p>
             </div>
