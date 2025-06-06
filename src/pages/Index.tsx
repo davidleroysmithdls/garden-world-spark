@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
@@ -87,16 +88,19 @@ const Index = () => {
       <header className="bg-white shadow-sm border-b">
         <div className="container mx-auto px-4 py-4 flex justify-between items-center">
           <Logo />
-          <div className="hidden md:flex items-center space-x-6">
+          <div className="flex items-center space-x-3 md:space-x-6">
             <Button 
               onClick={handleCallClick}
-              className="bg-blue-600 hover:bg-blue-700 text-white font-bold px-6 py-2"
+              className="bg-blue-600 hover:bg-blue-700 text-white font-bold px-4 py-2 md:px-6"
+              size="sm"
             >
-              <Phone size={16} className="mr-2" />
-              Call Today
+              <Phone size={16} className="mr-1 md:mr-2" />
+              <span className="hidden sm:inline">Call Today</span>
+              <span className="sm:hidden">Call</span>
             </Button>
-            <Button onClick={() => setIsLeadFormOpen(true)} className="bg-orange-500 hover:bg-orange-600 text-white">
-              Get Free Quote
+            <Button onClick={() => setIsLeadFormOpen(true)} className="bg-orange-500 hover:bg-orange-600 text-white" size="sm">
+              <span className="hidden sm:inline">Get Free Quote</span>
+              <span className="sm:hidden">Quote</span>
             </Button>
           </div>
         </div>
