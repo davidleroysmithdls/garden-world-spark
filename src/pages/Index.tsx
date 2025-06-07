@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
@@ -10,7 +9,6 @@ import { Star, Phone, Mail, MapPin, Users, CheckCircle, ArrowRight } from "lucid
 import LeadForm from "@/components/LeadForm";
 import Logo from "@/components/Logo";
 import { useToast } from "@/hooks/use-toast";
-
 const Index = () => {
   const [isLeadFormOpen, setIsLeadFormOpen] = useState(false);
   const [footerFormData, setFooterFormData] = useState({
@@ -18,17 +16,18 @@ const Index = () => {
     phone: '',
     service: ''
   });
-  const { toast } = useToast();
-
+  const {
+    toast
+  } = useToast();
   const scrollToServices = () => {
     const servicesSection = document.getElementById('services');
-    servicesSection?.scrollIntoView({ behavior: 'smooth' });
+    servicesSection?.scrollIntoView({
+      behavior: 'smooth'
+    });
   };
-
   const handleCallClick = () => {
     window.location.href = 'tel:+447700900123';
   };
-
   const handleFooterFormSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (!footerFormData.name || !footerFormData.phone || !footerFormData.service) {
@@ -44,30 +43,28 @@ const Index = () => {
       title: "Request submitted!",
       description: "We'll call you back within 24 hours."
     });
-    setFooterFormData({ name: '', phone: '', service: '' });
+    setFooterFormData({
+      name: '',
+      phone: '',
+      service: ''
+    });
   };
-
-  const reviews = [
-    {
-      name: "Sarah Johnson",
-      rating: 5,
-      text: "Absolutely fantastic work on our new driveway. Professional, punctual, and the quality is outstanding. Highly recommend Contractor Pros!",
-      location: "Manchester"
-    },
-    {
-      name: "Michael Thompson", 
-      rating: 5,
-      text: "They transformed our back garden with a beautiful patio and fencing. The attention to detail was incredible. Will definitely use them again.",
-      location: "Leeds"
-    },
-    {
-      name: "Emma Williams",
-      rating: 5,
-      text: "From quote to completion, the service was exceptional. Our new fence looks amazing and was installed quickly with minimal disruption.",
-      location: "Birmingham"
-    }
-  ];
-
+  const reviews = [{
+    name: "Sarah Johnson",
+    rating: 5,
+    text: "Absolutely fantastic work on our new driveway. Professional, punctual, and the quality is outstanding. Highly recommend Contractor Pros!",
+    location: "Manchester"
+  }, {
+    name: "Michael Thompson",
+    rating: 5,
+    text: "They transformed our back garden with a beautiful patio and fencing. The attention to detail was incredible. Will definitely use them again.",
+    location: "Leeds"
+  }, {
+    name: "Emma Williams",
+    rating: 5,
+    text: "From quote to completion, the service was exceptional. Our new fence looks amazing and was installed quickly with minimal disruption.",
+    location: "Birmingham"
+  }];
   const stats = [{
     number: "500+",
     label: "Projects Completed"
@@ -81,19 +78,13 @@ const Index = () => {
     number: "100%",
     label: "Customer Satisfaction"
   }];
-
-  return (
-    <div className="min-h-screen bg-white">
+  return <div className="min-h-screen bg-white">
       {/* Header */}
       <header className="bg-white shadow-sm border-b">
         <div className="container mx-auto px-4 py-4 flex justify-between items-center">
           <Logo />
           <div className="flex items-center space-x-3 md:space-x-6">
-            <Button 
-              onClick={handleCallClick}
-              className="bg-blue-600 hover:bg-blue-700 text-white font-bold px-4 py-2 md:px-6"
-              size="sm"
-            >
+            <Button onClick={handleCallClick} className="bg-blue-600 hover:bg-blue-700 text-white font-bold px-4 py-2 md:px-6" size="sm">
               <Phone size={16} className="mr-1 md:mr-2" />
               <span className="hidden sm:inline">Call Today</span>
               <span className="sm:hidden">Call</span>
@@ -113,9 +104,7 @@ const Index = () => {
             <div className="animate-fade-in">
               <div className="flex items-center space-x-2 mb-6">
                 <div className="flex text-yellow-400">
-                  {[...Array(5)].map((_, i) => (
-                    <Star key={i} size={20} fill="currentColor" />
-                  ))}
+                  {[...Array(5)].map((_, i) => <Star key={i} size={20} fill="currentColor" />)}
                 </div>
                 <span className="text-gray-600 font-medium">5.0 • 500+ Reviews</span>
               </div>
@@ -156,11 +145,7 @@ const Index = () => {
             </div>
             
             <div className="relative">
-              <img 
-                alt="Beautiful garden construction work" 
-                className="rounded-2xl shadow-2xl w-full h-[500px] object-cover" 
-                src="/lovable-uploads/e8c93a2d-80dc-4043-a6d9-fc68a0e92142.jpg" 
-              />
+              <img alt="Beautiful garden construction work" className="rounded-2xl shadow-2xl w-full h-[500px] object-cover" src="/lovable-uploads/49d67e18-b63d-4ba3-bfd9-2ef6cce8c758.jpg" />
             </div>
           </div>
         </div>
@@ -170,12 +155,10 @@ const Index = () => {
       <section className="py-16 bg-gray-900">
         <div className="container mx-auto px-4 max-w-6xl">
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 text-center">
-            {stats.map((stat, index) => (
-              <div key={index} className="text-white">
+            {stats.map((stat, index) => <div key={index} className="text-white">
                 <div className="text-4xl lg:text-5xl font-bold mb-2 text-orange-500">{stat.number}</div>
                 <div className="text-gray-300 text-lg">{stat.label}</div>
-              </div>
-            ))}
+              </div>)}
           </div>
         </div>
       </section>
@@ -314,13 +297,10 @@ const Index = () => {
           </div>
 
           <div className="grid md:grid-cols-3 gap-8">
-            {reviews.map((review, index) => (
-              <Card key={index} className="bg-white border shadow-md hover:shadow-lg transition-shadow duration-300">
+            {reviews.map((review, index) => <Card key={index} className="bg-white border shadow-md hover:shadow-lg transition-shadow duration-300">
                 <CardContent className="p-8">
                   <div className="flex text-yellow-400 mb-4">
-                    {[...Array(review.rating)].map((_, i) => (
-                      <Star key={i} size={20} fill="currentColor" />
-                    ))}
+                    {[...Array(review.rating)].map((_, i) => <Star key={i} size={20} fill="currentColor" />)}
                   </div>
                   <p className="font-normal">"{review.text}"</p>
                   <div>
@@ -328,8 +308,7 @@ const Index = () => {
                     <p className="text-sm text-gray-500">{review.location}</p>
                   </div>
                 </CardContent>
-              </Card>
-            ))}
+              </Card>)}
           </div>
         </div>
       </section>
@@ -340,29 +319,17 @@ const Index = () => {
           <h3 className="text-2xl font-bold text-gray-900 mb-8">Accredited & Certified</h3>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 items-center">
             <div className="bg-white p-6 rounded-lg shadow-sm">
-              <img 
-                src="https://images.unsplash.com/photo-1487958449943-2429e8be8625?w=100&h=100&fit=crop&crop=center" 
-                alt="Checkatrade Logo" 
-                className="w-16 h-16 mx-auto mb-3 object-contain"
-              />
+              <img src="https://images.unsplash.com/photo-1487958449943-2429e8be8625?w=100&h=100&fit=crop&crop=center" alt="Checkatrade Logo" className="w-16 h-16 mx-auto mb-3 object-contain" />
               <p className="font-semibold text-gray-700">Checkatrade</p>
               <p className="text-sm text-gray-500">Approved</p>
             </div>
             <div className="bg-white p-6 rounded-lg shadow-sm">
-              <img 
-                src="https://images.unsplash.com/photo-1524230572899-a752b3835840?w=100&h=100&fit=crop&crop=center" 
-                alt="Trading Standards Logo" 
-                className="w-16 h-16 mx-auto mb-3 object-contain"
-              />
+              <img src="https://images.unsplash.com/photo-1524230572899-a752b3835840?w=100&h=100&fit=crop&crop=center" alt="Trading Standards Logo" className="w-16 h-16 mx-auto mb-3 object-contain" />
               <p className="font-semibold text-gray-700">Trading Standards</p>
               <p className="text-sm text-gray-500">Approved</p>
             </div>
             <div className="bg-white p-6 rounded-lg shadow-sm">
-              <img 
-                src="https://images.unsplash.com/photo-1459767129954-1b1c1f9b9ace?w=100&h=100&fit=crop&crop=center" 
-                alt="Insurance Logo" 
-                className="w-16 h-16 mx-auto mb-3 object-contain"
-              />
+              <img src="https://images.unsplash.com/photo-1459767129954-1b1c1f9b9ace?w=100&h=100&fit=crop&crop=center" alt="Insurance Logo" className="w-16 h-16 mx-auto mb-3 object-contain" />
               <p className="font-semibold text-gray-700">Fully Insured</p>
               <p className="text-sm text-gray-500">£2M Coverage</p>
             </div>
@@ -411,32 +378,28 @@ const Index = () => {
                   <Label htmlFor="footer-name" className="text-white text-sm font-medium mb-2 block">
                     Your Name *
                   </Label>
-                  <Input 
-                    id="footer-name" 
-                    value={footerFormData.name}
-                    onChange={(e) => setFooterFormData(prev => ({ ...prev, name: e.target.value }))}
-                    placeholder="Enter your name" 
-                    className="bg-white border-0" 
-                  />
+                  <Input id="footer-name" value={footerFormData.name} onChange={e => setFooterFormData(prev => ({
+                  ...prev,
+                  name: e.target.value
+                }))} placeholder="Enter your name" className="bg-white border-0" />
                 </div>
                 <div>
                   <Label htmlFor="footer-phone" className="text-white text-sm font-medium mb-2 block">
                     Phone Number *
                   </Label>
-                  <Input 
-                    id="footer-phone" 
-                    type="tel"
-                    value={footerFormData.phone}
-                    onChange={(e) => setFooterFormData(prev => ({ ...prev, phone: e.target.value }))}
-                    placeholder="Enter your phone" 
-                    className="bg-white border-0" 
-                  />
+                  <Input id="footer-phone" type="tel" value={footerFormData.phone} onChange={e => setFooterFormData(prev => ({
+                  ...prev,
+                  phone: e.target.value
+                }))} placeholder="Enter your phone" className="bg-white border-0" />
                 </div>
                 <div>
                   <Label htmlFor="footer-service" className="text-white text-sm font-medium mb-2 block">
                     Service Needed *
                   </Label>
-                  <Select value={footerFormData.service} onValueChange={(value) => setFooterFormData(prev => ({ ...prev, service: value }))}>
+                  <Select value={footerFormData.service} onValueChange={value => setFooterFormData(prev => ({
+                  ...prev,
+                  service: value
+                }))}>
                     <SelectTrigger className="bg-white border-0">
                       <SelectValue placeholder="Select service" />
                     </SelectTrigger>
@@ -515,8 +478,6 @@ const Index = () => {
 
       {/* Lead Form Modal */}
       <LeadForm isOpen={isLeadFormOpen} onClose={() => setIsLeadFormOpen(false)} />
-    </div>
-  );
+    </div>;
 };
-
 export default Index;
