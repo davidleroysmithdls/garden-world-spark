@@ -39,7 +39,7 @@ const Logo = ({
       </div>
       
       {showText && <div>
-          <h1 className={`${textSizeClasses[size]} font-bold text-gray-900 leading-tight`}>Contractor Pros</h1>
+          <h1 className={`${textSizeClasses[size]} font-bold text-gray-900 leading-tight`}>Stylish Driveways and Paving</h1>
           <p className="text-sm text-gray-600 font-medium">Professional Contractors UK</p>
         </div>}
     </div>;
